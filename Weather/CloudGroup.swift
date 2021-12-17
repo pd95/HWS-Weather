@@ -10,6 +10,7 @@ import Foundation
 class CloudGroup {
     var clouds = [Cloud]()
     let opacity: Double
+    var lastUpdate = Date.now
 
     init(thickness: Cloud.Thickness) {
         let cloudsToCreate: Int
@@ -49,5 +50,21 @@ class CloudGroup {
             let cloud = Cloud(imageNumber: imageNumer, scale: scale)
             clouds.append(cloud)
         }
+    }
+
+    func update(date: Date) {
+        let delta = date.timeIntervalSince1970 - lastUpdate.timeIntervalSince1970
+
+        for cloud in clouds {
+            cloud.position.x -= delta * cloud.speed
+
+            let offScreenDistance = max(400, 400 * cloud.scale)
+
+            if cloud.position.x < -offScreenDistance {
+                cloud.position.x = offScreenDistance
+            }
+        }
+
+        lastUpdate = date
     }
 }

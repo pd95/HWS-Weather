@@ -13,6 +13,7 @@ struct CloudsView: View {
     var body: some View {
         TimelineView(.animation) { timeline in
             Canvas { context, size in
+                cloudGroup.update(date: timeline.date)
                 context.opacity = cloudGroup.opacity
 
                 for cloud in cloudGroup.clouds {
