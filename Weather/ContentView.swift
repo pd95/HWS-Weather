@@ -11,6 +11,19 @@ struct ContentView: View {
     @State private var cloudThickness = Cloud.Thickness.regular
     @State private var time = 0.0
 
+    let dayPhases: [(name: String, startTime: Double)] = [
+        ("midnight", 0),
+        ("night", 1.0/24),
+        ("sunrise", 6.5/24),
+        ("morning", 8.0/24),
+        ("noon", 11.5/24),
+        ("afternoon", 13.0/24),
+        ("sunset", 17.5/24),
+        ("evening", 19.0/24),
+        ("night", 22.0/24),
+        ("midnight", 23.5/24)
+    ]
+
     let backgroundTopStops: [Gradient.Stop] = [
         .init(color: .midnightStart, location: 0),
         .init(color: .midnightStart, location: 0.25),
@@ -62,6 +75,9 @@ struct ContentView: View {
                 topTint: cloudTopStops.interpolated(amount: time),
                 bottomTint: cloudBottomStops.interpolated(amount: time)
             )
+
+            Text(dayPhase)
+                .font(.largeTitle)
         }
         .preferredColorScheme(.dark)
         .background(LinearGradient(colors: [
@@ -96,6 +112,18 @@ struct ContentView: View {
         let start = Calendar.current.startOfDay(for: Date.now)
         let advanced = start.addingTimeInterval(time * 24 * 60 * 60)
         return advanced.formatted(date: .omitted, time: .shortened)
+    }
+
+    var dayPhase: String {
+        var currentPhase = dayPhases[0]
+        for phase in dayPhases {
+            if time > phase.startTime  {
+                currentPhase = phase
+            } else {
+                break
+            }
+        }
+        return currentPhase.name.capitalized
     }
 }
 
