@@ -11,12 +11,37 @@ struct ContentView: View {
     @State private var cloudThickness = Cloud.Thickness.regular
     @State private var time = 0.0
 
+    let backgroundTopStops: [Gradient.Stop] = [
+        .init(color: .midnightStart, location: 0),
+        .init(color: .midnightStart, location: 0.25),
+        .init(color: .sunriseStart, location: 0.33),
+        .init(color: .sunnyDayStart, location: 0.38),
+        .init(color: .sunnyDayStart, location: 0.7),
+        .init(color: .sunsetStart, location: 0.78),
+        .init(color: .midnightStart, location: 0.82),
+        .init(color: .midnightStart, location: 1),
+    ]
+
+    let backgroundBottomStops: [Gradient.Stop] = [
+        .init(color: .midnightEnd, location: 0),
+        .init(color: .midnightEnd, location: 0.25),
+        .init(color: .sunriseEnd, location: 0.33),
+        .init(color: .sunnyDayEnd, location: 0.38),
+        .init(color: .sunnyDayEnd, location: 0.7),
+        .init(color: .sunsetEnd, location: 0.78),
+        .init(color: .midnightEnd, location: 0.82),
+        .init(color: .midnightEnd, location: 1),
+    ]
+
     var body: some View {
         ZStack {
             CloudsView(thickness: cloudThickness)
         }
         .preferredColorScheme(.dark)
-        .background(Color.blue)
+        .background(LinearGradient(colors: [
+            backgroundTopStops.interpolated(amount: time),
+            backgroundBottomStops.interpolated(amount: time)
+        ], startPoint: .top, endPoint: .bottom))
         .safeAreaInset(edge: .bottom, content: {
             VStack {
                 Text(formattedTime)
