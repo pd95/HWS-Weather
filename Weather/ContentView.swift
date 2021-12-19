@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var cloudThickness = Cloud.Thickness.regular
-    @State private var time = 0.0
+    @State private var time = -1.0
 
     let dayPhases: [(name: String, startTime: Double)] = [
         ("midnight", 0),
@@ -76,8 +76,11 @@ struct ContentView: View {
                 bottomTint: cloudBottomStops.interpolated(amount: time)
             )
 
-            Text(dayPhase)
-                .font(.largeTitle)
+            VStack {
+                Text(dayPhase)
+                Text(formattedTime)
+            }
+            .font(.largeTitle)
         }
         .preferredColorScheme(.dark)
         .background(LinearGradient(colors: [
@@ -86,9 +89,6 @@ struct ContentView: View {
         ], startPoint: .top, endPoint: .bottom))
         .safeAreaInset(edge: .bottom, content: {
             VStack {
-                Text(formattedTime)
-                    .padding(.top)
-
                 Picker("Thickness", selection: $cloudThickness) {
                     ForEach(Cloud.Thickness.allCases, id: \.self) { thickness in
                         Text(String(describing: thickness).capitalized)
@@ -106,6 +106,11 @@ struct ContentView: View {
             .frame(maxWidth: .infinity)
             .background(.regularMaterial)
         })
+        .onAppear {
+            if time < 0.0 {
+                setCurrentTime()
+            }
+        }
     }
 
     var formattedTime: String {
@@ -124,6 +129,15 @@ struct ContentView: View {
             }
         }
         return currentPhase.name.capitalized
+    }
+
+    func setCurrentTime() {
+        let date = Date.now
+        let components = Calendar.current.dateComponents([.hour, .minute, .second], from: date)
+
+        time = ((Double(components.second ?? 0) / 60 +
+                 Double(components.minute ?? 0)) / 60 +
+                 Double(components.hour ?? 0)) / 24
     }
 }
 
