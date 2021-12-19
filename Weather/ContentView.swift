@@ -79,6 +79,7 @@ struct ContentView: View {
             VStack {
                 Text(dayPhase)
                 Text(formattedTime)
+                    .onTapGesture(count: 2, perform: setCurrentTime)
             }
             .font(.largeTitle)
         }
