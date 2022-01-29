@@ -23,10 +23,11 @@ struct StarsView: View {
 
                     if star.flickerInterval == 0 {
                         // flashing star
-                        var flashLevel = sin(Double(index) + timeInterval * 4)
+                        var flashLevel = sin(Double(index)+timeInterval*2)
                         flashLevel = abs(flashLevel)
-                        flashLevel /= 2
-                        context.opacity = 0.4 + flashLevel
+                        let attenuation = 1.5
+                        flashLevel /= attenuation
+                        context.opacity = (1 - 1/attenuation) + flashLevel
                     } else {
                         // blooming star
                         var flashLevel = sin(Double(index) + timeInterval)
