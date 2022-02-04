@@ -10,6 +10,9 @@ import SwiftUI
 struct ContentView: View {
     @State private var cloudThickness = Cloud.Thickness.regular
     @State private var time = -1.0
+    @State private var stormType = Storm.Contents.none
+    @State private var rainIntensity = 500.0
+    @State private var rainAngle = 0.0
 
     let dayPhases: [(name: String, startTime: Double)] = [
         ("midnight", 0),
@@ -95,6 +98,10 @@ struct ContentView: View {
                 bottomTint: cloudBottomStops.interpolated(amount: time)
             )
 
+            if stormType != .none {
+                StormView(type: stormType, direction: .degrees(rainAngle), strength: Int(rainIntensity))
+            }
+
             VStack {
                 Text(dayPhase)
                 Text(formattedTime)
@@ -102,6 +109,7 @@ struct ContentView: View {
             }
             .font(.largeTitle)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .preferredColorScheme(.dark)
         .background(LinearGradient(colors: [
             backgroundTopStops.interpolated(amount: time),
@@ -121,6 +129,25 @@ struct ContentView: View {
                     Slider(value: $time)
                 }
                 .padding()
+
+                Picker("Precipitation", selection: $stormType) {
+                    ForEach(Storm.Contents.allCases, id: \.self) { stormType in
+                        Text(String(describing: stormType).capitalized)
+                    }
+                }
+                .pickerStyle(.segmented)
+
+                HStack {
+                    Text("Intensity")
+                    Slider(value: $rainIntensity, in: 0...1000)
+                }
+                .padding(.horizontal)
+
+                HStack {
+                    Text("Angle:")
+                    Slider(value: $rainAngle, in: 0...90)
+                }
+                .padding(.horizontal)
             }
             .padding()
             .frame(maxWidth: .infinity)
