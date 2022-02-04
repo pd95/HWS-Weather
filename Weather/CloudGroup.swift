@@ -9,10 +9,10 @@ import Foundation
 
 class CloudGroup {
     var clouds = [Cloud]()
-    let opacity: Double
+    var opacity: Double = 0.0
     var lastUpdate = Date.now
 
-    init(thickness: Cloud.Thickness) {
+    func update(thickness: Cloud.Thickness) {
         let cloudsToCreate: Int
         let cloudScale: ClosedRange<Double>
 
@@ -43,13 +43,28 @@ class CloudGroup {
             cloudScale = 1.2...1.6
         }
 
-        for i in 0..<cloudsToCreate {
+        // Remove clouds which are superfluous
+        let cloudsToRemove = clouds.count - cloudsToCreate
+        if cloudsToRemove > 0 {
+            clouds.removeLast(cloudsToRemove)
+        }
+
+        // Update scale of all clouds we keep
+        for cloud in clouds {
+            cloud.update(scale: Double.random(in: cloudScale))
+        }
+
+        // Add new clouds if we haven't enough
+        for i in clouds.count..<cloudsToCreate {
             let scale = Double.random(in: cloudScale)
             let imageNumer = i % 8
 
             let cloud = Cloud(imageNumber: imageNumer, scale: scale)
             clouds.append(cloud)
         }
+
+        // make the array appear random
+        clouds.shuffle()
     }
 
     func update(date: Date) {

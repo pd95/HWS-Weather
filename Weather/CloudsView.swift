@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct CloudsView: View {
-    var cloudGroup: CloudGroup
+    let thickness: Cloud.Thickness
     let topTint: Color
     let bottomTint: Color
+
+    @State private var cloudGroup = CloudGroup()
 
     var body: some View {
         TimelineView(.animation) { timeline in
@@ -41,12 +43,14 @@ struct CloudsView: View {
         }
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-
-    init(thickness: Cloud.Thickness, topTint: Color, bottomTint: Color) {
-        cloudGroup = CloudGroup(thickness: thickness)
-        self.topTint = topTint
-        self.bottomTint = bottomTint
+        .onChange(of: thickness) { newValue in
+            withAnimation {
+                cloudGroup.update(thickness: newValue)
+            }
+        }
+        .onAppear {
+            cloudGroup.update(thickness: thickness)
+        }
     }
 }
 
