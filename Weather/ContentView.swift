@@ -102,12 +102,20 @@ struct ContentView: View {
                 StormView(type: stormType, direction: .degrees(rainAngle), strength: Int(rainIntensity))
             }
 
+            WeatherDetailsView(
+                tintColor: backgroundTopStops.interpolated(amount: time),
+                residueType: stormType,
+                residueStrength: rainIntensity
+            )
+
+            /*
             VStack {
                 Text(dayPhase)
                 Text(formattedTime)
                     .onTapGesture(count: 2, perform: setCurrentTime)
             }
             .font(.largeTitle)
+             */
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .preferredColorScheme(.dark)
