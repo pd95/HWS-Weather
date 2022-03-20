@@ -141,7 +141,8 @@ struct ContentView: View {
             }
             .padding()
             .frame(maxWidth: .infinity)
-            .background(.regularMaterial)
+            .background(Color.black.opacity(0.2))
+            //.background(.regularMaterial)
         })
         .onAppear {
             if time < 0.0 {
