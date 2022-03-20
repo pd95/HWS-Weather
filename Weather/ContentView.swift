@@ -76,26 +76,28 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            StarsView()
-                .opacity(starOpacity)
+//            StarsView()
+//                .opacity(starOpacity)
+//
+//            CloudsView(
+//                thickness: cloudThickness,
+//                topTint: cloudTopStops.interpolated(amount: time),
+//                bottomTint: cloudBottomStops.interpolated(amount: time)
+//            )
 
-            CloudsView(
-                thickness: cloudThickness,
-                topTint: cloudTopStops.interpolated(amount: time),
-                bottomTint: cloudBottomStops.interpolated(amount: time)
-            )
+            LightningView()
 
-            if stormType != .none {
-                StormView(type: stormType, direction: .degrees(rainAngle), strength: Int(rainIntensity))
-            }
-
-            WeatherDetailsView(
-                time: time,
-                tintColor: backgroundTopStops.interpolated(amount: time),
-                residueType: stormType,
-                residueStrength: rainIntensity
-            )
-            .onTapGesture(count: 2, perform: setCurrentTime)
+//            if stormType != .none {
+//                StormView(type: stormType, direction: .degrees(rainAngle), strength: Int(rainIntensity))
+//            }
+//
+//            WeatherDetailsView(
+//                time: time,
+//                tintColor: backgroundTopStops.interpolated(amount: time),
+//                residueType: stormType,
+//                residueStrength: rainIntensity
+//            )
+//            .onTapGesture(count: 2, perform: setCurrentTime)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .preferredColorScheme(.dark)

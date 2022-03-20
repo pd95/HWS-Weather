@@ -24,6 +24,9 @@
 		17DE565727BC3543000BF6F5 /* Residue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DE565627BC3543000BF6F5 /* Residue.swift */; };
 		17DE565927BCF8DC000BF6F5 /* ResidueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DE565827BCF8DC000BF6F5 /* ResidueView.swift */; };
 		17DE565B27BCFA1D000BF6F5 /* WeatherDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DE565A27BCFA1D000BF6F5 /* WeatherDetailsView.swift */; };
+		17E7486A27E731B400FBBA22 /* LightningBolt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7486927E731B400FBBA22 /* LightningBolt.swift */; };
+		17E7486C27E7323200FBBA22 /* Lightning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7486B27E7323200FBBA22 /* Lightning.swift */; };
+		17E7486E27E734F200FBBA22 /* LightningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7486D27E734F200FBBA22 /* LightningView.swift */; };
 		17FA5DFE27AD296F00B141B5 /* Storm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FA5DFD27AD296F00B141B5 /* Storm.swift */; };
 		17FA5E0027AD299500B141B5 /* StormDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FA5DFF27AD299500B141B5 /* StormDrop.swift */; };
 		17FA5E0227AD2AF000B141B5 /* StormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FA5E0127AD2AF000B141B5 /* StormView.swift */; };
@@ -48,6 +51,9 @@
 		17DE565627BC3543000BF6F5 /* Residue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Residue.swift; sourceTree = "<group>"; };
 		17DE565827BCF8DC000BF6F5 /* ResidueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidueView.swift; sourceTree = "<group>"; };
 		17DE565A27BCFA1D000BF6F5 /* WeatherDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsView.swift; sourceTree = "<group>"; };
+		17E7486927E731B400FBBA22 /* LightningBolt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningBolt.swift; sourceTree = "<group>"; };
+		17E7486B27E7323200FBBA22 /* Lightning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lightning.swift; sourceTree = "<group>"; };
+		17E7486D27E734F200FBBA22 /* LightningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningView.swift; sourceTree = "<group>"; };
 		17FA5DFD27AD296F00B141B5 /* Storm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm.swift; sourceTree = "<group>"; };
 		17FA5DFF27AD299500B141B5 /* StormDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StormDrop.swift; sourceTree = "<group>"; };
 		17FA5E0127AD2AF000B141B5 /* StormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StormView.swift; sourceTree = "<group>"; };
@@ -98,6 +104,9 @@
 				17DE565427BC3412000BF6F5 /* ResidueDrop.swift */,
 				17DE565827BCF8DC000BF6F5 /* ResidueView.swift */,
 				17DE565A27BCFA1D000BF6F5 /* WeatherDetailsView.swift */,
+				17E7486927E731B400FBBA22 /* LightningBolt.swift */,
+				17E7486B27E7323200FBBA22 /* Lightning.swift */,
+				17E7486D27E734F200FBBA22 /* LightningView.swift */,
 				177EBC7B276E026D001D2BA9 /* Color-Custom.swift */,
 				177EBC7F276E0770001D2BA9 /* Color-Interpolation.swift */,
 				177EBC7D276E04D3001D2BA9 /* Array-GradientStop.swift */,
@@ -199,9 +208,12 @@
 				17DE565927BCF8DC000BF6F5 /* ResidueView.swift in Sources */,
 				177EBC7C276E026D001D2BA9 /* Color-Custom.swift in Sources */,
 				177EBC68276D0D7E001D2BA9 /* WeatherApp.swift in Sources */,
+				17E7486A27E731B400FBBA22 /* LightningBolt.swift in Sources */,
 				17A9CDA527A55B99007D5979 /* StarField.swift in Sources */,
 				177EBC7E276E04D3001D2BA9 /* Array-GradientStop.swift in Sources */,
 				177EBC78276D0F4C001D2BA9 /* CloudGroup.swift in Sources */,
+				17E7486C27E7323200FBBA22 /* Lightning.swift in Sources */,
+				17E7486E27E734F200FBBA22 /* LightningView.swift in Sources */,
 				177EBC7A276D112F001D2BA9 /* CloudsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
