@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1739814E2891444F00A4686D /* SunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739814D2891444F00A4686D /* SunView.swift */; };
 		177EBC68276D0D7E001D2BA9 /* WeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EBC67276D0D7E001D2BA9 /* WeatherApp.swift */; };
 		177EBC6A276D0D7E001D2BA9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EBC69276D0D7E001D2BA9 /* ContentView.swift */; };
 		177EBC6C276D0D7F001D2BA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177EBC6B276D0D7F001D2BA9 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1739814D2891444F00A4686D /* SunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunView.swift; sourceTree = "<group>"; };
 		177EBC64276D0D7E001D2BA9 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		177EBC67276D0D7E001D2BA9 /* WeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApp.swift; sourceTree = "<group>"; };
 		177EBC69276D0D7E001D2BA9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				17E7486927E731B400FBBA22 /* LightningBolt.swift */,
 				17E7486B27E7323200FBBA22 /* Lightning.swift */,
 				17E7486D27E734F200FBBA22 /* LightningView.swift */,
+				1739814D2891444F00A4686D /* SunView.swift */,
 				177EBC7B276E026D001D2BA9 /* Color-Custom.swift */,
 				177EBC7F276E0770001D2BA9 /* Color-Interpolation.swift */,
 				177EBC7D276E04D3001D2BA9 /* Array-GradientStop.swift */,
@@ -203,6 +206,7 @@
 				177EBC6A276D0D7E001D2BA9 /* ContentView.swift in Sources */,
 				17FA5E0227AD2AF000B141B5 /* StormView.swift in Sources */,
 				17DE565B27BCFA1D000BF6F5 /* WeatherDetailsView.swift in Sources */,
+				1739814E2891444F00A4686D /* SunView.swift in Sources */,
 				177EBC76276D0E05001D2BA9 /* Cloud.swift in Sources */,
 				17DE565727BC3543000BF6F5 /* Residue.swift in Sources */,
 				17DE565927BCF8DC000BF6F5 /* ResidueView.swift in Sources */,
